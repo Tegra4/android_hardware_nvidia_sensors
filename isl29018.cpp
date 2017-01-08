@@ -39,7 +39,7 @@ Isl29018Light::Isl29018Light(const char *sysPath, int sensor_id)
 Isl29018Light::~Isl29018Light() {
 }
 
-int Isl29018Light::enable(int32_t handle, int en) {
+int Isl29018Light::enable(int32_t handle __unused, int en) {
     if (en != 0) {
         mEnabled = true;
         mLast_value = -1;
@@ -51,7 +51,7 @@ int Isl29018Light::enable(int32_t handle, int en) {
     return 0;
 }
 
-int Isl29018Light::setDelay(int32_t handle, int64_t ns) {
+int Isl29018Light::setDelay(int32_t handle __unused, int64_t ns) {
     mPollingDelay = ns;
     return 0;
 }
@@ -119,7 +119,7 @@ Isl29018Prox::Isl29018Prox(const char *sysPath, int sensor_id, unsigned int Prox
 Isl29018Prox::~Isl29018Prox() {
 }
 
-int Isl29018Prox::enable(int32_t handle, int en) {
+int Isl29018Prox::enable(int32_t handle __unused, int en) {
     if (en != 0) {
         mLast_value = -1;
         mEnabled = true;
@@ -131,7 +131,7 @@ int Isl29018Prox::enable(int32_t handle, int en) {
     return 0;
 }
 
-int Isl29018Prox::setDelay(int32_t handle, int64_t ns) {
+int Isl29018Prox::setDelay(int32_t handle __unused, int64_t ns) {
     mPollingDelay = ns;
     return 0;
 }

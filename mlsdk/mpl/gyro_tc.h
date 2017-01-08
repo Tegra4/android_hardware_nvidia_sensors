@@ -11,7 +11,7 @@
  *
  *****************************************************************************/
 
-#ifndef _GYRO_TC_H
+#ifndef _GYRO_TC_H_
 #define _GYRO_TC_H_
 
 #include "mltypes.h"
@@ -39,5 +39,5 @@ inv_error_t inv_print_gtc_data(void);
 }
 #endif
 
-#endif  /* _GYRO_TC_H */
+#endif  /* _GYRO_TC_H_ */
 

@@ -24,6 +24,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <string.h>
+#include <iostream>
 
 #include "cm3218.h"
 #include "SensorUtil.h"
@@ -66,7 +67,7 @@ Cm3218Base::Cm3218Base(const char *sysPath,int sid)
 Cm3218Base::~Cm3218Base() {
 }
 
-int Cm3218Base::enable(int32_t handle, int en) {
+int Cm3218Base::enable(int32_t handle __unused, int en) {
     if ((en != 0) && (en != 1))
         return -EINVAL;
 
@@ -101,7 +102,7 @@ int Cm3218Base::enable(int32_t handle, int en) {
     return 0;
 }
 
-int Cm3218Base::setDelay(int32_t handle, int64_t ns) {
+int Cm3218Base::setDelay(int32_t handle __unused, int64_t ns) {
     mPollingDelay = ns < CM3218_INTEGRATION_TIME ?
                                                 CM3218_INTEGRATION_TIME : ns;
     return 0;
@@ -121,7 +122,7 @@ bool Cm3218Base::equals(int64_t val1, int64_t val2) {
     return val1 == val2;
 }
 
-void Cm3218Base::toEvent(sensors_event_t &ev, int val) {
+void Cm3218Base::toEvent(sensors_event_t &ev __unused, int val __unused) {
 // Not used at all, just a dummy
 }
 

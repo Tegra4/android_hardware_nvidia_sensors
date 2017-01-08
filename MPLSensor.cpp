@@ -865,7 +865,7 @@ void MPLSensor::computeLocalSensorMask(int enabled_sensors)
     } while (0);
 }
 
-int MPLSensor::enableSensors(unsigned long sensors, int en)
+int MPLSensor::enableSensors(unsigned long sensors, int en __unused)
 {
     VFUNC_LOG;
 

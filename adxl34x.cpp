@@ -48,7 +48,7 @@ Adxl34xAccel::~Adxl34xAccel() {
        close(data_fd);
 }
 
-int Adxl34xAccel::setDelay(int32_t handle, int64_t ns) {
+int Adxl34xAccel::setDelay(int32_t handle __unused, int64_t ns) {
     unsigned int autosleep = 1;
     unsigned int code = EVENT_RATE_CODE_25HZ;
 
@@ -84,7 +84,7 @@ int Adxl34xAccel::setDelay(int32_t handle, int64_t ns) {
     return 0;
 }
 
-int Adxl34xAccel::enable(int32_t handle, int en) {
+int Adxl34xAccel::enable(int32_t handle __unused, int en) {
     if ((en != 0) && (data_fd >= 0)) {
         mEnabled = true;
     }

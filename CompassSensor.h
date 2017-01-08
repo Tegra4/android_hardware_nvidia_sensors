@@ -30,7 +30,7 @@ public:
                   int input_num,
                   unsigned int resolution);
     virtual ~CompassSensor();
-    virtual int readEvents(sensors_event_t *data, int count) { return 0; }
+    virtual int readEvents(sensors_event_t *data __unused, int count __unused) { return 0; }
     int readSample(long *data, int64_t *timestamp);
     int providesCalibration() { return 0; }
     void getOrientationMatrix(signed char *orient);
@@ -45,5 +45,4 @@ private:
 /*****************************************************************************/
 
 #endif  // COMPASS_SENSOR_H
-
 

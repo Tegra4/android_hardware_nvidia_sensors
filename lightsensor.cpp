@@ -25,6 +25,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <string.h>
+#include <iostream>
 
 #include "SensorUtil.h"
 #include "lightsensor.h"
@@ -183,7 +184,7 @@ int LightSensorBase::getSensorDetails(int sid)
 /* To allow driver implementations based on only _raw sysfs
  * check if it is writable, then write
  * returns 0 on success else non zero */
-int LightSensorBase::enable(int32_t handle, int en) {
+int LightSensorBase::enable(int32_t handle __unused, int en) {
     if ((en != 0) && (en != 1))
         return -EINVAL;
 
@@ -219,7 +220,7 @@ int LightSensorBase::enable(int32_t handle, int en) {
     return ret != 1;
 }
 
-bool LightSensorBase::equals(int64_t val1, int64_t val2) {
+bool LightSensorBase::equals(int64_t val1 __unused, int64_t val2) {
     /*
      * Auto-brightness algorithm needs replaying events from light sensor
      * even if they are same as it uses weighted average principle.
@@ -270,7 +271,7 @@ int LightSensorBase::readEvents(sensors_event_t* data, int count) {
     return 1;
 }
 
-int LightSensorBase::setDelay(int32_t handle, int64_t ns) {
+int LightSensorBase::setDelay(int32_t handle __unused, int64_t ns) {
     mPollingDelay = ns < mIntegrationTime ? mIntegrationTime : ns;
     return 0;
 }
@@ -555,7 +556,7 @@ void ProximitySensor::toEvent(sensors_event_t &evt, int value) {
 
 /* virtual functions */
 
-bool ProximitySensor::equals (int64_t val1, int64_t val2) {
+bool ProximitySensor::equals (int64_t val1 __unused, int64_t val2) {
     if ((val1 < 0) || (val2 < 0))
         return false;
     if (mProxThreshold == IGNORE_PROX_THRESH)

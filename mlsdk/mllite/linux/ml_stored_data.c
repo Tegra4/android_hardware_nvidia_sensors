@@ -295,7 +295,7 @@ inv_error_t inv_write_cal(unsigned char *cal, size_t len)
  *
  *  @return INV_SUCCESS if successful, a non-zero error code otherwise.
  */
-inv_error_t inv_load_cal_V0(unsigned char *calData, size_t len)
+inv_error_t inv_load_cal_V0(unsigned char *calData __unused, size_t len __unused)
 {
     inv_error_t result;
 
@@ -325,7 +325,7 @@ inv_error_t inv_load_cal_V0(unsigned char *calData, size_t len)
  *          Calibration format type 1 is produced by the MPU Self Test and
  *          substitutes the type 0 : inv_load_cal_V0().
  *
- *  @pre    
+ *  @pre
  *
  *  @param  calData
  *              A pointer to an array of bytes to be parsed.
@@ -334,7 +334,7 @@ inv_error_t inv_load_cal_V0(unsigned char *calData, size_t len)
  *
  *  @return INV_SUCCESS if successful, a non-zero error code otherwise.
  */
-inv_error_t inv_load_cal_V1(unsigned char *calData, size_t len)
+inv_error_t inv_load_cal_V1(unsigned char *calData __unused, size_t len __unused)
 {
     return INV_SUCCESS;
 }
@@ -344,8 +344,8 @@ inv_error_t inv_load_cal_V1(unsigned char *calData, size_t len)
  *          It parses a binary data set containing calibration data.
  *          The binary data set is intended to be loaded from a file.
  *
- * @pre     
- *          
+ * @pre
+ *
  *
  * @param   calData
  *              A pointer to an array of bytes to be parsed.
@@ -402,7 +402,7 @@ inv_error_t inv_load_cal(unsigned char *calData)
  *
  *  @return INV_SUCCESS if successful, a non-zero error code otherwise.
  */
-inv_error_t inv_store_cal(unsigned char *calData, size_t length)
+inv_error_t inv_store_cal(unsigned char *calData, size_t length __unused)
 {
     inv_error_t res = 0;
     size_t size;
@@ -493,7 +493,7 @@ inv_error_t inv_store_calibration(void)
         goto free_mem_n_exit;
     }
     else {
-        MPL_LOGE("calData from inv_save_mpl_states, size=%d", 
+        MPL_LOGE("calData from inv_save_mpl_states, size=%d",
                  strlen((char *)calData));
     }
 

@@ -39,7 +39,7 @@ HwmonTemp::HwmonTemp(const char *sysPath, int sensor_id)
 HwmonTemp::~HwmonTemp() {
 }
 
-int HwmonTemp::enable(int32_t handle, int en) {
+int HwmonTemp::enable(int32_t handle __unused, int en) {
     if (en != 0)
         mEnabled = true;
     else

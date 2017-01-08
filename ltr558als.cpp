@@ -19,6 +19,7 @@
 #include <fcntl.h>
 #include <cutils/log.h>
 #include <stdlib.h>
+#include <string.h>
 #include <linux/input.h>
 #include <hardware/sensors.h>
 
@@ -42,7 +43,7 @@ ltr558Light::ltr558Light(const char *sysPath, const char *sysEnablePath, int sen
 ltr558Light::~ltr558Light() {
 }
 
-int ltr558Light::enable(int32_t handle, int en) {
+int ltr558Light::enable(int32_t handle __unused, int en) {
     int err = writeIntToFile(mSysEnablePath, en);
     if (err <= 0)
         return err;
@@ -58,7 +59,7 @@ int ltr558Light::enable(int32_t handle, int en) {
     return 0;
 }
 
-int ltr558Light::setDelay(int32_t handle, int64_t ns) {
+int ltr558Light::setDelay(int32_t handle __unused, int64_t ns) {
     mPollingDelay = ns;
     return 0;
 }
@@ -182,7 +183,7 @@ int ltr558Prox::fillPaths(char *path, char *enable_path, char  *thres_path)
     return 0;
 }
 
-int ltr558Prox::enable(int32_t handle, int en) {
+int ltr558Prox::enable(int32_t handle __unused, int en) {
     int err = writeIntToFile(mSysEnablePath, en);
     if (err <= 0)
         return err;
@@ -198,7 +199,7 @@ int ltr558Prox::enable(int32_t handle, int en) {
     return 0;
 }
 
-int ltr558Prox::setDelay(int32_t handle, int64_t ns) {
+int ltr558Prox::setDelay(int32_t handle __unused, int64_t ns) {
     mPollingDelay = ns;
     return 0;
 }

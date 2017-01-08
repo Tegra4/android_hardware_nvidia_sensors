@@ -24,6 +24,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <string.h>
+#include <iostream>
 
 #include "tcs3772.h"
 #include "SensorUtil.h"
@@ -66,7 +67,7 @@ Tcs3772Base::Tcs3772Base(const char *sysPath,int sid)
 Tcs3772Base::~Tcs3772Base() {
 }
 
-int Tcs3772Base::enable(int32_t handle, int en) {
+int Tcs3772Base::enable(int32_t handle __unused, int en) {
     if ((en != 0) && (en != 1))
         return -EINVAL;
 
@@ -102,7 +103,7 @@ int Tcs3772Base::enable(int32_t handle, int en) {
     return 0;
 }
 
-int Tcs3772Base::setDelay(int32_t handle, int64_t ns) {
+int Tcs3772Base::setDelay(int32_t handle __unused, int64_t ns) {
     mPollingDelay = ns < TCS3772_INTEGRATION_TIME ?
                                                 TCS3772_INTEGRATION_TIME : ns;
     return 0;
@@ -122,7 +123,7 @@ bool Tcs3772Base::equals(int64_t val1, int64_t val2) {
     return val1 == val2;
 }
 
-void Tcs3772Base::toEvent(sensors_event_t &ev, int val) {
+void Tcs3772Base::toEvent(sensors_event_t &ev __unused, int val __unused) {
 // Not used at all, just a dummy
 }
 

@@ -40,7 +40,7 @@ Max44005SensorBase::Max44005SensorBase(const char *sysPath, int sensor_id)
 Max44005SensorBase::~Max44005SensorBase() {
 }
 
-int Max44005SensorBase::enable(int32_t handle, int en) {
+int Max44005SensorBase::enable(int32_t handle __unused, int en) {
     if ((en != 0) && (en != 1))
         return -EINVAL;
 
@@ -62,7 +62,7 @@ int Max44005SensorBase::enable(int32_t handle, int en) {
     return 0;
 }
 
-int Max44005SensorBase::setDelay(int32_t handle, int64_t ns) {
+int Max44005SensorBase::setDelay(int32_t handle __unused, int64_t ns) {
     mPollingDelay = ns < MIN_POLL_DELAY ? MIN_POLL_DELAY : ns;
     return 0;
 }

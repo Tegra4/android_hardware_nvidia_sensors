@@ -145,7 +145,7 @@ int NvsInput::getFd() const
     return data_fd;
 }
 
-int NvsInput::enable(int32_t handle, int en)
+int NvsInput::enable(int32_t handle __unused, int en)
 {
     int err = 0;
 
@@ -166,7 +166,7 @@ int NvsInput::enable(int32_t handle, int en)
     return err;
 }
 
-int NvsInput::getEnable(int32_t handle)
+int NvsInput::getEnable(int32_t handle __unused)
 {
     if (mEnabled)
         return 1;
@@ -174,7 +174,7 @@ int NvsInput::getEnable(int32_t handle)
     return 0;
 }
 
-int NvsInput::setDelay(int32_t handle, int64_t ns)
+int NvsInput::setDelay(int32_t handle __unused, int64_t ns)
 {
     int err = 0;
 
@@ -195,7 +195,7 @@ int NvsInput::setDelay(int32_t handle, int64_t ns)
     return err;
 }
 
-int64_t NvsInput::getDelay(int32_t handle)
+int64_t NvsInput::getDelay(int32_t handle __unused)
 {
     return mDelay;
 }

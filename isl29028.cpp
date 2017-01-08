@@ -19,6 +19,7 @@
 #include <fcntl.h>
 #include <cutils/log.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "isl29028.h"
 #include "SensorUtil.h"

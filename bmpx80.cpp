@@ -19,6 +19,7 @@
 #include <fcntl.h>
 #include <cutils/log.h>
 #include <stdlib.h>
+#include <string.h>
 #include <linux/input.h>
 #include <hardware/sensors.h>
 
