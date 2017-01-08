@@ -125,6 +125,8 @@ LOCAL_SHARED_LIBRARIES := liblog libsensors.base
 LOCAL_CPPFLAGS+=-DLINUX=1
 include $(BUILD_SHARED_LIBRARY)
 
+
+## MODIFY KERNEL KBUILD TO EXPORT linux/lightsensor.h ##
 include $(CLEAR_VARS)
 LOCAL_MODULE := libsensors.cm3217
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
